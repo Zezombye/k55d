@@ -29,6 +29,8 @@ When k55d exits, it gives control back to the keyboard (hardware mode). The keyb
 
 > [!IMPORTANT]
 > **To save the color of `k55d.ini` in the keyboard memory, select "Save color to keyboard memory" in the tray menu. The keyboard then shows this color when k55d does not run, also after it loses power. The keyboard does not keep every save: unplug and plug the keyboard to check, and save again if it shows the rainbow.**
+>
+> Basically hardware writes fail half of the time, so if it doesn't work the first time, just save it again and replug to confirm there is no rainbow flash.
 
 Fn+1 to Fn+5, Fn+6 to Fn+0 and Fn+~ (in hardware mode) replace the saved color with the built-in presets.
 
