@@ -41,7 +41,7 @@ On Windows, requirements: MinGW-w64 gcc, windres and make.
 make
 ```
 
-On Linux, requirements: the MinGW-w64 cross-compiler (Debian/Ubuntu: `gcc-mingw-w64-x86_64`) and make.
+On Linux, requirements: the MinGW-w64 cross-compiler (Debian/Ubuntu: `gcc-mingw-w64-x86-64`) and make.
 
 ```
 make CROSS=x86_64-w64-mingw32-
