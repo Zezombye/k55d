@@ -1,0 +1,58 @@
+name: Build
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install MinGW-w64
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends gcc-mingw-w64-x86_64 make
+
+      - name: Read version
+        id: version
+        run: echo "version=$(tr -d '[:space:]' < version.txt)" >> "$GITHUB_OUTPUT"
+
+      # A release is published when version.txt holds a version that has no release tag yet.
+      - name: Check if version is new
+        id: release
+        if: github.event_name == 'push'
+        run: |
+          if [ -n "$(git ls-remote --tags origin "refs/tags/v${{ steps.version.outputs.version }}")" ]; then
+            echo "new=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "new=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build
+        run: make CROSS=x86_64-w64-mingw32-
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: k55d-${{ steps.version.outputs.version }}
+          path: |
+            k55d-${{ steps.version.outputs.version }}.exe
+            k55d.ini
+          if-no-files-found: error
+
+      - name: Package release
+        if: steps.release.outputs.new == 'true'
+        run: zip k55d-${{ steps.version.outputs.version }}.zip k55d-${{ steps.version.outputs.version }}.exe k55d.ini README.md
+
+      - name: Publish release
+        if: steps.release.outputs.new == 'true'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.version.outputs.version }}
+          target_commitish: ${{ github.sha }}
+          files: k55d-${{ steps.version.outputs.version }}.zip
+          fail_on_unmatched_files: true
