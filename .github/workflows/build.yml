@@ -40,13 +40,13 @@ jobs:
         with:
           name: k55d-${{ steps.version.outputs.version }}
           path: |
-            k55d-${{ steps.version.outputs.version }}.exe
+            k55d.exe
             k55d.ini
           if-no-files-found: error
 
       - name: Package release
         if: steps.release.outputs.new == 'true'
-        run: zip k55d-${{ steps.version.outputs.version }}.zip k55d-${{ steps.version.outputs.version }}.exe k55d.ini README.md
+        run: zip k55d-${{ steps.version.outputs.version }}.zip k55d.exe k55d.ini README.md
 
       - name: Publish release
         if: steps.release.outputs.new == 'true'

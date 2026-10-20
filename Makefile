@@ -3,7 +3,7 @@ CROSS ?=
 CC = $(CROSS)gcc
 WINDRES = $(CROSS)windres
 VERSION := $(strip $(file < version.txt))
-EXE = k55d-$(VERSION).exe
+EXE = k55d.exe
 CFLAGS = -std=c11 -O2 -Wall -Wextra -DK55D_VERSION=$(VERSION)
 LDLIBS = -lhid -lsetupapi
 
