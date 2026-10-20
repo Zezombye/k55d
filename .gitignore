@@ -1,6 +1,3 @@
-*.exe
+k55d.exe
 k55d.res
 k55d.log
-
-tools/**/*.dll
-tools/**/*.log
