@@ -12,12 +12,16 @@ k55d does not handle the other special keys (macro recording, brightness, Window
 
 This is completely vibe coded. I have no idea what this code does and I haven't read a single line of it, but after two hours of replugging my keyboard and debugging with Big Opus, it works.
 
+## WHY IS THERE CODE??? MAKE A FUCKING .EXE FILE AND GIVE IT TO ME
+
+https://github.com/Zezombye/k55d/releases download the .zip and follow instructions below
+
 ## Use
 
 1. Stop iCUE and remove it from the startup programs. iCUE and k55d cannot control the keyboard at the same time.
 2. Put `k55d.exe` and `k55d.ini` in the same folder. Edit `k55d.ini`.
 3. Start `k55d.exe`. An icon appears in the notification area. Right-click it to reload `k55d.ini` or to exit.
-4. To start k55d when you log in, add a value to `HKCU\Software\Microsoft\Windows\CurrentVersion\Run` with the full path of `k55d.exe`.
+4. To start k55d when you log in, add a shortcut to `k55d.exe` to `%appdata%\Microsoft\Windows\Start Menu\Programs\Startup`.
 
 k55d writes its messages to `k55d.log`, in the same folder. It shows a message box for errors.
 
@@ -25,7 +29,7 @@ When k55d exits, it gives control back to the keyboard (hardware mode). The keyb
 
 **To save the color of `k55d.ini` in the keyboard memory, select "Save color to keyboard memory" in the tray menu. The keyboard then shows this color when k55d does not run, also after it loses power. The keyboard does not keep every save: unplug and plug the keyboard to check, and save again if it shows the rainbow.** Fn+1 to Fn+5, Fn+6 to Fn+0 and Fn+~ (in hardware mode) replace the saved color with the built-in presets.
 
-`k55d-<version>.exe --quit` stops the running instance, as "Exit" in the tray menu.
+`k55d-<version>.exe --quit` stops the running instance, as does "Exit" in the tray menu.
 
 ### Limits
 
