@@ -27,7 +27,10 @@ k55d writes its messages to `k55d.log`, in the same folder. It shows a message b
 
 When k55d exits, it gives control back to the keyboard (hardware mode). The keyboard then shows the color saved in its memory.
 
-**To save the color of `k55d.ini` in the keyboard memory, select "Save color to keyboard memory" in the tray menu. The keyboard then shows this color when k55d does not run, also after it loses power. The keyboard does not keep every save: unplug and plug the keyboard to check, and save again if it shows the rainbow.** Fn+1 to Fn+5, Fn+6 to Fn+0 and Fn+~ (in hardware mode) replace the saved color with the built-in presets.
+> [!IMPORTANT]
+> **To save the color of `k55d.ini` in the keyboard memory, select "Save color to keyboard memory" in the tray menu. The keyboard then shows this color when k55d does not run, also after it loses power. The keyboard does not keep every save: unplug and plug the keyboard to check, and save again if it shows the rainbow.**
+
+Fn+1 to Fn+5, Fn+6 to Fn+0 and Fn+~ (in hardware mode) replace the saved color with the built-in presets.
 
 `k55d-<version>.exe --quit` stops the running instance, as does "Exit" in the tray menu.
 
